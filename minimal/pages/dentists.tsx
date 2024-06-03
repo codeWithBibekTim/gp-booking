@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styles from '../styles/Dentists.module.css';
 import Header from './components/Header'; // Ensure you have these components
 import Footer from './components/Footer'; // Ensure you have these components
+import doc from "../public/doc.png";
 
 const Dentists = () => {
   const [dentists, setDentists] = useState([]);
@@ -29,12 +30,17 @@ const Dentists = () => {
       
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
-          <h1>Find the Care You Need</h1>
-          <p>From routine checkups to specialized dental treatment, we're here for your health.</p>
+          <h1>Are you looking for Dentists?</h1>
+          <p>Find and solve your problems.</p>
           <button className={styles.servicesButton}>Our Services</button>
         </div>
         <div className={styles.heroImage}>
-          <Image src="/path-to-your-image.jpg" alt="Hero Image" layout="responsive" width={500} height={500} />
+          <Image
+            src={doc}
+            alt="About"
+            layout="responsive"
+            className={styles.mapImage}
+          />
         </div>
       </section>
 
@@ -55,22 +61,8 @@ const Dentists = () => {
           <button className={styles.infoButton}>Request an Appointment</button>
         </div>
       </section>
-
-      <section className={styles.dentistsSection}>
-        <h2>Available Dentists</h2>
-        <div className={styles.dentistsContainer}>
-          {dentists.map(dentist => (
-            <div key={dentist.id} className={styles.dentistCard}>
-              <Image src={dentist.image} alt={dentist.name} width={200} height={200} />
-              <h3>{dentist.name}</h3>
-              <p>{dentist.specialization}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className={styles.appointmentSection}>
-        <h2>Schedule an Appointment</h2>
+        <h2>Book an Appointment</h2>
         <form className={styles.appointmentForm}>
           <input type="text" placeholder="Name and Surname" required />
           <input type="email" placeholder="E-mail" required />
@@ -78,7 +70,6 @@ const Dentists = () => {
           <select required>
             <option value="">Select a Provider</option>
             <option value="dentist">Dentist</option>
-            <option value="physiotherapist">Physiotherapist</option>
             <option value="doctor">Doctor</option>
             <option value="other">Other</option>
           </select>

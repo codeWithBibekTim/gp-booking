@@ -12,6 +12,8 @@
   
   .heroContent {
     max-width: 50%;
+    align-content: center;
+    padding-left: 20%;
   }
   
   .heroContent h1 {
@@ -21,7 +23,7 @@
   
   .heroContent p {
     font-size: 18px;
-    margin: 20px 0;
+    margin: 15px 0;
   }
   
   .applyButton {
@@ -34,7 +36,8 @@
   }
   
   .heroImage {
-    max-width: 40%;
+    max-width: 80%;
+    padding-right: 5%;
   }
   
   .opportunitiesSection {
