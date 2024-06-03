@@ -1,16 +1,7 @@
-'use client';
-
 import React, { useState } from 'react';
-import {
-  Box,
-  Typography,
-  Container,
-  Paper,
-  TextField,
-  Button,
-  InputAdornment,
-  IconButton,
-  Hidden,
+import { 
+  Box, Typography, Container, Paper, TextField, Button, 
+  InputAdornment, IconButton, Grid, Card, CardContent, Hidden, CardMedia 
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -21,18 +12,15 @@ const Hero = () => {
   const [input, setInput] = useState('');
   const [service, setService] = useState('');
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
 
-  // Location
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value);
   };
 
-  const handleSearch = () => {
-    if (input) {
-      searchByPostcode(input);
-    } else {
-      console.error('Input is empty');
-    }
+  const handleServiceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setService(event.target.value);
+    setDropdownOpen(event.target.value !== '');
   };
 
   const handleLocationSearch = () => {
@@ -51,20 +39,26 @@ const Hero = () => {
     }
   };
 
-  const searchByPostcode = (postcode: string) => {
-    console.log('Searching for postcode:', postcode);
-    // Placeholder for API call by postcode
+  const handleSearch = async () => {
+    try {
+      if (input) {
+        const response = await fetch(`/api/practitioners?postcode=${input}`); 
+        const data = await response.json();
+        setSearchResults(data);
+      } else if (service) {
+        const response = await fetch(`/api/practitioners?speciality=${service}`);
+        const data = await response.json();
+        setSearchResults(data);
+      } else {
+        console.error('Please enter a postcode or service.');
+      }
+    } catch (error) {
+      console.error('An error occurred while fetching data:', error);
+    }
   };
 
   const searchByCoordinates = (lat: number, lon: number) => {
     console.log('Fetching practices near', lat, lon);
-    // Placeholder for API call by geographic coordinates
-  };
-
-  // Service
-  const handleServiceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setService(event.target.value);
-    setDropdownOpen(event.target.value !== '');
   };
 
   return (
@@ -97,18 +91,6 @@ const Hero = () => {
             mt: 4,
           }}
         >
-          {/* <TextField
-            fullWidth
-            placeholder='Service, practice or practitioner'
-            variant='outlined'
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position='start'>
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-          /> */}
           <div style={{ position: 'relative', width: '100%' }}>
             <TextField
               fullWidth
@@ -154,7 +136,7 @@ const Hero = () => {
             }}
           />
           <Hidden mdUp>
-            <Button variant='contained' color='primary' sx={{ width: '100%' }}>
+            <Button variant='contained' color='primary' sx={{ width: '100%' }} onClick={handleSearch}>
               Search
             </Button>
           </Hidden>
@@ -164,16 +146,41 @@ const Hero = () => {
               color='primary'
               onClick={handleSearch}
               sx={{
-                minWidth: 120, // Ensuring the width aligns with other input fields
-                height: 56, // Match the height of the TextFields
-                borderRadius: '4px', // Match the border radius of the TextFields
-                margin: '0 8px', // Consistent spacing
+                minWidth: 120, 
+                height: 56, 
+                borderRadius: '4px', 
+                margin: '0 8px', 
               }}
             >
               <SearchIcon />
             </Button>
           </Hidden>
         </Paper>
+
+        {/* Display Search Results */}
+        <Grid container spacing={2} mt={4}>
+          {searchResults.map((practitioner) => (
+            <Grid item xs={12} sm={6} md={4} key={practitioner.id}>
+              <Card>
+                <CardMedia 
+                  component="img"
+                  alt={practitioner.name}
+                  image={practitioner.image_url || './stethoscope.svg'}
+                  height="140" 
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {practitioner.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {practitioner.speciality} - {practitioner.address}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+
       </Container>
     </Box>
   );
