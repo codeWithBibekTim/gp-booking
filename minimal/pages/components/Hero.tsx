@@ -54,11 +54,19 @@ const Hero = () => {
       }
     } catch (error) {
       console.error('An error occurred while fetching data:', error);
+      setSearchResults([]); // Clear search results on error
     }
   };
 
-  const searchByCoordinates = (lat: number, lon: number) => {
-    console.log('Fetching practices near', lat, lon);
+  const searchByCoordinates = async (lat: number, lon: number) => {
+    try {
+      const response = await fetch(`/api/practitioners?lat=${lat}&lon=${lon}`);
+      const data = await response.json();
+      setSearchResults(data);
+    } catch (error) {
+      console.error('An error occurred while fetching data:', error);
+      setSearchResults([]); // Clear search results on error
+    }
   };
 
   return (
@@ -180,7 +188,6 @@ const Hero = () => {
             </Grid>
           ))}
         </Grid>
-
       </Container>
     </Box>
   );

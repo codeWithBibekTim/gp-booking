@@ -1,0 +1,125 @@
+.pageContainer {
+    font-family: Arial, sans-serif;
+  }
+  
+  .heroSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+    background: #f7f9fc;
+  }
+  
+  .heroContent {
+    max-width: 50%;
+  }
+  
+  .heroContent h1 {
+    font-size: 48px;
+    color: #003366;
+  }
+  
+  .heroContent p {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  
+  .applyButton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .heroImage {
+    max-width: 40%;
+  }
+  
+  .opportunitiesSection {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+  }
+  
+  .opportunitiesSection h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .opportunityCard {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .opportunityCard h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .benefitsSection {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f7f9fc;
+  }
+  
+  .benefitsSection h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .benefitsList {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .benefitsList li {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .applicationSection {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+  }
+  
+  .applicationSection h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .applicationForm {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .applicationForm input,
+  .applicationForm select,
+  .applicationForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .submitButton {
+    background-color: #00c851;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 18px;
+  }
+  

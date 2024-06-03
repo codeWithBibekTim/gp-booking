@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Box, Container, Grid, Link, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -12,48 +13,66 @@ const Footer = () => {
             <Typography variant='h6' gutterBottom>
               For Patients
             </Typography>
-            <Link href='#' variant='subtitle1' color='textSecondary'>
-              Find a Doctor
+            <Link href='/find-a-doctor' passHref>
+              <Typography variant='subtitle1' color='textSecondary'>
+                Find a Doctor
+              </Typography>
             </Link>
             <br />
-            <Link href='#' variant='subtitle1' color='textSecondary'>
-              Find a Dentist
+            <Link href='/find-a-dentist' passHref>
+              <Typography variant='subtitle1' color='textSecondary'>
+                Find a Dentist
+              </Typography>
             </Link>
             <br />
-            <Link href='#' variant='subtitle1' color='textSecondary'>
-              Find a Physiotherapist
+            <Link href='/find-a-physiotherapist' passHref>
+              <Typography variant='subtitle1' color='textSecondary'>
+                Find a Physiotherapist
+              </Typography>
             </Link>
           </Grid>
           <Grid item xs={12} sm={4} md={3}>
             <Typography variant='h6' gutterBottom>
               For Practices
             </Typography>
-            <Link href='#' variant='subtitle1' color='textSecondary'>
-              General Practice
+            <Link href='/general-practice' passHref>
+              <Typography variant='subtitle1' color='textSecondary'>
+                General Practice
+              </Typography>
             </Link>
             <br />
-            <Link href='#' variant='subtitle1' color='textSecondary'>
-              Allied Health
+            <Link href='/allied-health' passHref>
+              <Typography variant='subtitle1' color='textSecondary'>
+                Allied Health
+              </Typography>
             </Link>
             <br />
-            <Link href='#' variant='subtitle1' color='textSecondary'>
-              Dentists
+            <Link href='/dentists' passHref>
+              <Typography variant='subtitle1' color='textSecondary'>
+                Dentists
+              </Typography>
             </Link>
           </Grid>
           <Grid item xs={12} sm={4} md={3}>
             <Typography variant='h6' gutterBottom>
               HelloDoc
             </Typography>
-            <Link href='#' variant='subtitle1' color='textSecondary'>
-              About us
+            <Link href='/about' passHref>
+              <Typography variant='subtitle1' color='textSecondary'>
+                About us
+              </Typography>
             </Link>
             <br />
-            <Link href='#' variant='subtitle1' color='textSecondary'>
-              Careers
+            <Link href='/careers' passHref>
+              <Typography variant='subtitle1' color='textSecondary'>
+                Careers
+              </Typography>
             </Link>
             <br />
-            <Link href='#' variant='subtitle1' color='textSecondary'>
-              Contact us
+            <Link href='/contact' passHref>
+              <Typography variant='subtitle1' color='textSecondary'>
+                Contact us
+              </Typography>
             </Link>
           </Grid>
         </Grid>

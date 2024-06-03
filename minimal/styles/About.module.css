@@ -1,0 +1,103 @@
+.pageContainer {
+    font-family: Arial, sans-serif;
+  }
+  
+  .heroSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+    background: #f7f9fc;
+  }
+  
+  .heroContent {
+    max-width: 50%;
+  }
+  
+  .heroContent h1 {
+    font-size: 48px;
+    color: #003366;
+  }
+  
+  .heroContent p {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  
+  .heroButtons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .primaryButton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .secondaryButton {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .heroImage {
+    max-width: 40%;
+  }
+  
+  .servicesSection {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+    background-color: #fff;
+  }
+  
+  .serviceCard {
+    text-align: center;
+    max-width: 300px;
+  }
+  
+  .serviceCard h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .serviceCard p {
+    font-size: 16px;
+  }
+  
+  .aboutSection {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f7f9fc;
+  }
+  
+  .aboutSection h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .aboutSection p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .primaryButton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .aboutImage {
+    margin-top: 30px;
+  }
+  

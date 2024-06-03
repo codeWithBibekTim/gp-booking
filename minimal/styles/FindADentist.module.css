@@ -1,0 +1,170 @@
+.pageContainer {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .heroSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: #f7f9fc;
+  }
+  
+  .heroContent {
+    max-width: 50%;
+  }
+  
+  .heroContent h1 {
+    font-size: 36px;
+    color: #003366;
+  }
+  
+  .heroContent p {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  
+  .ctaButtons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .scheduleButton {
+    background-color: #00c851;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .learnButton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .heroImage {
+    max-width: 40%;
+  }
+  
+  .aboutSection {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .aboutSection h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .doctorsSection {
+    background: #f7f9fc;
+    padding: 50px 20px;
+  }
+  
+  .doctorsSection h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .doctorsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .doctorCard {
+    text-align: center;
+    max-width: 200px;
+  }
+  
+  .stepsSection {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .stepsSection h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .stepsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .step {
+    max-width: 150px;
+  }
+  
+  .callbackSection {
+    background: #f7f9fc;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .callbackSection h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .time {
+    text-align: center;
+  }
+  
+  .time span {
+    display: block;
+    font-size: 36px;
+    color: #00c851;
+  }
+  
+  .callbackForm {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .callbackForm input,
+  .callbackForm select,
+  .callbackForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .checkboxContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .checkboxContainer input {
+    margin: 0;
+  }
+  
+  .scheduleButton {
+    background-color: #00c851;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Container, Grid, Paper, Typography } from '@mui/material';
+import Link from 'next/link';
 import GeneralPractitionerIcon from '@mui/icons-material/LocalHospital';
 import TelehealthIcon from '@mui/icons-material/PhoneInTalk';
 import PhysiotherapistIcon from '@mui/icons-material/FitnessCenter';
@@ -14,14 +15,14 @@ import PodiatristIcon from '@mui/icons-material/DirectionsWalk';
 import { styled } from '@mui/material/styles';
 
 const features = [
-  { icon: <GeneralPractitionerIcon />, title: 'General Practitioner' },
-  { icon: <TelehealthIcon />, title: 'GP Telehealth' },
-  { icon: <PhysiotherapistIcon />, title: 'Physiotherapist' },
-  { icon: <DentistIcon />, title: 'Dentist' },
-  { icon: <PsychologistIcon />, title: 'Psychologist' },
-  { icon: <OptometristIcon />, title: 'Optometrist' },
-  { icon: <ChiropractorIcon />, title: 'Chiropractor' },
-  { icon: <PodiatristIcon />, title: 'Podiatrist' },
+  { icon: <GeneralPractitionerIcon />, title: 'General Practitioner', link: './general-practitioner' },
+  { icon: <TelehealthIcon />, title: 'GP Telehealth', link: '/gp-telehealth' },
+  { icon: <PhysiotherapistIcon />, title: 'Physiotherapist', link: './find-a-physiotherapist' },
+  { icon: <DentistIcon />, title: 'Dentist', link: './find-a-dentist' },
+  { icon: <PsychologistIcon />, title: 'Psychologist', link: '/psychologist' },
+  { icon: <OptometristIcon />, title: 'Optometrist', link: '/optometrist' },
+  { icon: <ChiropractorIcon />, title: 'Chiropractor', link: '/chiropractor' },
+  { icon: <PodiatristIcon />, title: 'Podiatrist', link: '/podiatrist' },
 ];
 
 const FeaturePaper = styled(Paper)(({ theme }) => ({
@@ -37,19 +38,21 @@ const FeaturePaper = styled(Paper)(({ theme }) => ({
 
 const Features = () => {
   return (
-    <Container maxWidth='lg' sx={{ py: 1, marginBottom: 8 }}>
-      <Typography variant='subtitle1' sx={{ mb: 2, textAlign: 'left' }}>
+    <Container maxWidth="lg" sx={{ py: 1, marginBottom: 8 }}>
+      <Typography variant="subtitle1" sx={{ mb: 2, textAlign: 'left' }}>
         Top Searches
       </Typography>
       <Grid container spacing={4}>
         {features.map((feature) => (
           <Grid item xs={12} sm={6} md={3} key={feature.title}>
-            <FeaturePaper sx={{ p: 4, textAlign: 'center' }}>
-              {feature.icon}
-              <Typography variant='h6' component='h3' sx={{ mt: 2 }}>
-                {feature.title}
-              </Typography>
-            </FeaturePaper>
+            <Link href={feature.link} passHref>
+              <FeaturePaper sx={{ p: 4, textAlign: 'center' }}>
+                {feature.icon}
+                <Typography variant="h6" component="h3" sx={{ mt: 2 }}>
+                  {feature.title}
+                </Typography>
+              </FeaturePaper>
+            </Link>
           </Grid>
         ))}
       </Grid>
