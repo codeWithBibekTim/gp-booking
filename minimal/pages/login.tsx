@@ -1,43 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Button, Container, TextField, Typography, Link } from '@mui/material';
-import axios from 'axios';
 import { useRouter } from 'next/router';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession, sendPasswordReset } from 'next-auth/react';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
+  const { data: session, status } = useSession();
 
-  const handleSubmit = async (event: React.FormEvent) => {
+  useEffect(() => {
+    if (session) {
+      router.push('/user-profile');
+    }
+  }, [session, router]);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const response = await axios.post('/api/login', { email, password });
-      if (response.data.success) {
-        // Redirect to appropriate profile page after successful login
-        router.push('/user-profile');
-      } else {
-        // Display error message for invalid login credentials
-        alert('Invalid email or password');
-      }
-    } catch (error) {
-      console.error('Error logging in:', error);
-      // Display generic error message for login failure
-      alert('Error logging in');
+    const result = await signIn('credentials', {
+      redirect: false,
+      email,
+      password,
+    });
+
+    if (!result.error) {
+      // Handle success here
+    } else {
+      alert(result.error);
     }
   };
 
   const handlePasswordReset = async () => {
     try {
-      await axios.post('/api/password-reset', { email });
-      // Display success message for password reset link sent
+      await sendPasswordReset(email);
       alert('Password reset link sent to your email');
     } catch (error) {
       console.error('Error sending password reset link:', error);
-      // Display error message for password reset link failure
       alert('Error sending password reset link');
     }
   };
+
+  if (status === 'loading') {
+    return <p>Loading...</p>;
+  }
 
   return (
     <Container maxWidth="sm">
@@ -81,24 +86,6 @@ const Login = () => {
               Reset Password
             </Link>
           </Typography>
-        </Box>
-        <Box sx={{ mt: 2, textAlign: 'center' }}>
-          <Button
-            variant="outlined"
-            color="primary"
-            onClick={() => signIn('google')}
-            sx={{ mt: 1 }}
-          >
-            Sign in with Google
-          </Button>
-          <Button
-            variant="outlined"
-            color="primary"
-            onClick={() => signIn('facebook')}
-            sx={{ mt: 1 }}
-          >
-            Sign in with Facebook
-          </Button>
         </Box>
       </Box>
     </Container>

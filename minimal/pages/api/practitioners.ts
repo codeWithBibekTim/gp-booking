@@ -15,9 +15,6 @@ export default async function handler(
   res: NextApiResponse<Data[]>
 ) {
   try {
-    // Extract the specialty from the query parameters
-    const { specialty } = req.query;
-
     const connection = await mysql.createConnection({
       host: process.env.DB_HOST,
       user: process.env.DB_USERNAME,
@@ -26,24 +23,21 @@ export default async function handler(
       port: Number(process.env.DB_PORT),
     });
 
-    // Assuming you want to fetch practitioners based on the selected specialty
-    const [rows] = await connection.execute(
-      'SELECT id, name, speciality FROM practitioners WHERE speciality = ? LIMIT 10',
-      [specialty]
-    );
+    // Assuming you want to fetch a list of practitioners
+    const [rows] = await connection.execute('SELECT id, name, speciality FROM practitioners LIMIT 10');
 
     // Check if the connection was successful and the query returned rows
     if (rows.length > 0) {
-      console.log('Database connection successful!');
-      console.log('Query results:', rows);
+      console.log("Database connection successful!");
+      console.log("Query results:", rows);
       res.status(200).json(rows as Data[]); // Send the result back to the client
     } else {
       console.error('No data found in the database.');
-      res.status(404).json([{ error: 'No data found for the selected specialty.' }]);
+      res.status(404).json([{ error: 'No data found.' }]); 
     }
     connection.end(); // Close the connection
   } catch (error) {
     console.error('Error connecting to the database:', error);
-    res.status(500).json([{ error: 'Error connecting to the database.' }]);
+    res.status(500).json([{ error: 'Error connecting to the database.' }]); 
   }
 }

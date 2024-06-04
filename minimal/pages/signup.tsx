@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [role, setRole] = useState('');
@@ -45,6 +46,15 @@ const Signup = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+          />
+          <TextField
+            label="Phone"
+            type="Phone"
+            fullWidth
+            margin="normal"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+           // required
           />
           <TextField
             label="Password"

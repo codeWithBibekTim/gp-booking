@@ -21,7 +21,7 @@ const FindAProvider = () => {
           <button className={styles.servicesButton}>Our Services</button>
         </div>
         <div className={styles.heroImage}>
-          <Image src="/path-to-your-image.jpg" alt="Hero Image" layout="responsive" width={500} height={500} />
+          <Image src="/dentist.jpg" alt="Hero Image" layout="responsive" width={500} height={500} />
         </div>
       </section>
 

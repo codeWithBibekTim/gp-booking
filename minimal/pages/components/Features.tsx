@@ -15,7 +15,7 @@ import PodiatristIcon from '@mui/icons-material/DirectionsWalk';
 import { styled } from '@mui/material/styles';
 
 const features = [
-  { icon: <GeneralPractitionerIcon />, title: 'General Practitioner', link: './general-practitioner' },
+  { icon: <GeneralPractitionerIcon />, title: 'General Practitioner', link: './general-practitioner'},
   { icon: <TelehealthIcon />, title: 'GP Telehealth', link: '/gp-telehealth' },
   { icon: <PhysiotherapistIcon />, title: 'Physiotherapist', link: './find-a-physiotherapist' },
   { icon: <DentistIcon />, title: 'Dentist', link: './find-a-dentist' },

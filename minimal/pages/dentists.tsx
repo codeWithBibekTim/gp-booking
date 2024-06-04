@@ -4,7 +4,7 @@ import Image from 'next/image';
 import styles from '../styles/Dentists.module.css';
 import Header from './components/Header'; // Ensure you have these components
 import Footer from './components/Footer'; // Ensure you have these components
-import doc from "../public/doc.png";
+import doc from "../public/dentist.jpg";
 
 const Dentists = () => {
   const [dentists, setDentists] = useState([]);

@@ -47,7 +47,7 @@ const Header = () => {
                       <ListItemIcon>
                         <SearchIcon />
                       </ListItemIcon>
-                      <ListItemText primary='Search' />
+
                     </ListItem>
                     <Link href="/login" passHref>
                       <ListItem button>
@@ -69,11 +69,6 @@ const Header = () => {
                     </Typography>
                   </Button>
                 </Link>
-                <Button sx={{ textTransform: 'none' }} onClick={handleSearchClick} color="inherit">
-                  <Typography variant='subtitle2' component='h2' sx={{ fontWeight: 'bold' }}>
-                    Search
-                  </Typography>
-                </Button>
                 <Link href="/login" passHref>
                   <Button startIcon={<LoginIcon />} sx={{ textTransform: 'none' }} color="inherit">
                     <Typography variant='subtitle2' component='h2' sx={{ fontWeight: 'bold' }}>

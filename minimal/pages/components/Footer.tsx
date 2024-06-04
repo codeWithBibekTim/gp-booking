@@ -69,7 +69,7 @@ const Footer = () => {
               </Typography>
             </Link>
             <br />
-            <Link href='/contact' passHref>
+            <Link href='/contact' passHref underline="none" sx={{ textDecoration: 'none' }}>
               <Typography variant='subtitle1' color='textSecondary'>
                 Contact us
               </Typography>

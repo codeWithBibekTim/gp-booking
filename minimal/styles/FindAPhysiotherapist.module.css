@@ -11,7 +11,8 @@
   }
   
   .heroContent {
-    max-width: 50%;
+    max-width: 70%;
+    padding-left: 10%;
   }
   
   .heroContent h1 {
@@ -35,6 +36,7 @@
   
   .heroImage {
     max-width: 40%;
+    padding-right: 5%;
   }
   
   .infoSection {

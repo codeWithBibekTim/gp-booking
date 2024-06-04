@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styles from '../styles/FindAPhysiotherapist.module.css';
 import Header from './components/Header'; // Ensure you have these components
 import Footer from './components/Footer'; // Ensure you have these components
+import physiotherapist from "../public/physiotherapist.jpg";
 
 const FindAPhysiotherapist = () => {
   return (
@@ -21,7 +22,12 @@ const FindAPhysiotherapist = () => {
           <button className={styles.servicesButton}>Our Services</button>
         </div>
         <div className={styles.heroImage}>
-          <Image src="/path-to-your-image.jpg" alt="Hero Image" layout="responsive" width={500} height={500} />
+          <Image
+            src={physiotherapist}
+            alt="About"
+            layout="responsive"
+            className={styles.mapImage}
+          />
         </div>
       </section>
 
@@ -64,24 +70,6 @@ const FindAPhysiotherapist = () => {
           </div>
         </div>
         <button className={styles.aboutButton}>About Us</button>
-      </section>
-
-      <section className={styles.appointmentSection}>
-        <h2>Schedule an Appointment</h2>
-        <form className={styles.appointmentForm}>
-          <input type="text" placeholder="Name and Surname" required />
-          <input type="email" placeholder="E-mail" required />
-          <input type="tel" placeholder="Phone" required />
-          <select required>
-            <option value="">Select a Provider</option>
-            <option value="physiotherapist">Physiotherapist</option>
-            <option value="doctor">Doctor</option>
-            <option value="dentist">Dentist</option>
-            <option value="other">Other</option>
-          </select>
-          <textarea placeholder="Additional message" required></textarea>
-          <button type="submit" className={styles.submitButton}>Request Appointment</button>
-        </form>
       </section>
 
       <Footer /> {/* Render the Footer component */}

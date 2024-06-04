@@ -54,10 +54,8 @@ const Hero = () => {
       }
     } catch (error) {
       console.error('An error occurred while fetching data:', error);
-      setSearchResults([]); // Clear search results on error
     }
   };
-
   const searchByCoordinates = async (lat: number, lon: number) => {
     try {
       const response = await fetch(`/api/practitioners?lat=${lat}&lon=${lon}`);

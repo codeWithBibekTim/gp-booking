@@ -1,7 +1,6 @@
-// App.js
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './styles/global.css'; // Import global CSS file
 
 const App = () => {
   const [appointments, setAppointments] = useState([]);
