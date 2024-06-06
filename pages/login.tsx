@@ -1,48 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Box, Button, Container, TextField, Typography, Link } from '@mui/material';
 import { useRouter } from 'next/router';
-import { signIn, useSession, sendPasswordReset } from 'next-auth/react';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
-  const { data: session, status } = useSession();
 
-  useEffect(() => {
-    if (session) {
-      router.push('/user-profile');
-    }
-  }, [session, router]);
-
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const result = await signIn('credentials', {
-      redirect: false,
-      email,
-      password,
-    });
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
 
-    if (!result.error) {
-      // Handle success here
-    } else {
-      alert(result.error);
+      const data = await response.json();
+
+      if (data.success) {
+        // Redirect to user-profile if successful
+        router.push('/user-profile'); 
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error('Error logging in:', error);
+      alert('Error logging in');
     }
   };
 
   const handlePasswordReset = async () => {
-    try {
-      await sendPasswordReset(email);
-      alert('Password reset link sent to your email');
-    } catch (error) {
-      console.error('Error sending password reset link:', error);
-      alert('Error sending password reset link');
-    }
+    // Handle password reset using your own API
+    // ...
   };
-
-  if (status === 'loading') {
-    return <p>Loading...</p>;
-  }
 
   return (
     <Container maxWidth="sm">

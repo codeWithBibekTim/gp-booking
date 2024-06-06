@@ -62,10 +62,10 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Link href="/list-your-practice" passHref>
-                  <Button sx={{ textTransform: 'none' }} endIcon={<LoginIcon />} color="inherit">
+                <Link href="/appointments" passHref>
+                  <Button sx={{ textTransform: 'none' }} color="inherit">
                     <Typography variant='subtitle2' component='h2' sx={{ fontWeight: 'bold' }}>
-                      List your practice
+                      Appoinments Booking
                     </Typography>
                   </Button>
                 </Link>

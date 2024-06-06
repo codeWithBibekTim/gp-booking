@@ -45,16 +45,9 @@ const AlliedHealth = () => {
 
   return (
     <div className={styles.pageContainer}>
-      <Head>
-        <title>Allied Health</title>
-        <meta name="description" content="Test" />
-      </Head>
+     
       <Header />
-      <section className={styles.heroSection}>
-
-      </section>
-
-      <section className={styles.appointmentSection}>
+          <section className={styles.appointmentSection}>
         <h2>Schedule an Appointment</h2>
         <form className={styles.appointmentForm} onSubmit={handleSubmit}>
           <input type="text" name="name" placeholder="Name and Surname" required />
